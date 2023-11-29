@@ -1,24 +1,12 @@
-import { Inter } from 'next/font/google'
-import { useSession, signIn, signOut } from "next-auth/react"
-import Nav from '@/components/Nav'
-
-const inter = Inter({ subsets: ['latin'] })
+import Layout from "@/components/layout";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
-  const { data: session } = useSession()
-  if(!session) {
-    return (
-      <div className='flex justify-center items-center h-screen w-screen'>
-        <button onClick={ () => signIn('google')} className='button-53'>Login with Google</button>
-      </div>
-    )
-  }
-  return(
-    <>
-      <Nav></Nav>
-      <div>Welcome back, {session.user.name}</div>
-      <button onClick={ () => signOut('google')} className='button-53'>Logout</button>
-    </>
-  )
-  
+  const { data: session } = useSession();
+
+  return (
+    <Layout>
+      <div className="container"><h2>Hello, {session?.user?.name}</h2></div>
+    </Layout>
+  );
 }

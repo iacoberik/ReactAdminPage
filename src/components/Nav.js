@@ -1,6 +1,13 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Nav() {
+  const inactiveLink = "flex";
+  const activeLink = inactiveLink + " active-link";
+
+  const router = useRouter();
+  const { pathname } = router;
+
   return (
     <nav className="py-2 px-5 flex justify-between items-center">
       <div>
@@ -24,8 +31,11 @@ export default function Nav() {
           Admin Panel
         </h1>
       </div>
-      <div className="flex gap-6">
-        <Link className="flex" href={"/"}>
+      <div className="flex gap-8">
+        <Link
+          className={pathname === "/" ? activeLink : inactiveLink}
+          href={"/"}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -42,7 +52,10 @@ export default function Nav() {
           </svg>
           Dashboard
         </Link>
-        <Link className="flex" href={"/"}>
+        <Link
+          className={pathname.includes("/products") ? activeLink : inactiveLink}
+          href={"/products"}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -59,7 +72,10 @@ export default function Nav() {
           </svg>
           Products
         </Link>
-        <Link className="flex" href={"/"}>
+        <Link
+          className={pathname.includes("/orders") ? activeLink : inactiveLink}
+          href={"/orders"}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -76,7 +92,10 @@ export default function Nav() {
           </svg>
           Orders
         </Link>
-        <Link className="flex" href={"/"}>
+        <Link
+          className={pathname.includes("/settings") ? activeLink : inactiveLink}
+          href={"/settings"}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
