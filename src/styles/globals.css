@@ -34,6 +34,7 @@ h1 {
 h2 {
   font-size: 22px;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 nav {
@@ -51,9 +52,69 @@ nav a:hover,
   transform: scale(1.2);
 }
 
-.container, .footer {
+.container,
+.footer {
   padding: 20px;
 }
+
+
+input {
+  display: block;
+  padding: 6px 12px;
+  background: linear-gradient(#464d55, #25292e);
+  ;
+  border: 1px solid rgb(60, 63, 68);
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 15px;
+  color: rgb(247, 248, 248);
+  /* height: 46px; */
+  appearance: none;
+  transition: border 0.15s ease 0s;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: rgb(100, 153, 255);
+}
+
+textarea {
+  display: block;
+  padding: 6px 12px;
+  background: linear-gradient(#464d55, #25292e);
+  ;
+  border: 1px solid rgb(60, 63, 68);
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 15px;
+  color: rgb(247, 248, 248);
+  /* height: 46px; */
+  appearance: none;
+  transition: border 0.15s ease 0s;
+  width: 50vw;
+  height: 100px;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+.product-inputs label {
+  margin-bottom: 5px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 
 /* CSS */
 .button-53 {
@@ -114,15 +175,15 @@ nav a:hover,
   background-image: linear-gradient(#464d55, #25292e);
   border-radius: 8px;
   border-width: 0;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .05);
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
   flex-direction: column;
-  font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: expo-brand-demi, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 18px;
-  height: 52px;
+  height: 40px;
   justify-content: center;
   line-height: 1;
   margin: 0;
@@ -151,10 +212,4 @@ nav a:hover,
 
 .button-84:focus {
   box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
-}
-
-@media (max-width: 420px) {
-  .button-84 {
-    height: 48px;
-  }
 }
