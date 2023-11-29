@@ -14,9 +14,9 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -25,6 +25,23 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+nav {
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+}
+
+nav a {
+    transition: 0.2s ease-in-out 
+}
+
+nav a:hover {
+  transform: scale(1.1);
+}
 
 
 /* CSS */
