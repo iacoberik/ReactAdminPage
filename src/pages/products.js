@@ -12,9 +12,9 @@ export default function Products() {
       setProducts(response.data);
     });
   }, []);
-  return (
-    <Layout>
-      <div className="container">
+  if (products.length > 0) {
+    return (
+      <Layout>
         <Link href={"/products/new"} className="button-84">
           Add new product
         </Link>
@@ -28,7 +28,7 @@ export default function Products() {
               <tr>
                 <td>{product.title}</td>
                 <td className="flex gap-4 justify-end content-center">
-                  <Link href={"/products/edit/" + product._id}>
+                  <Link href={"/products/delete/" + product._id}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -67,7 +67,16 @@ export default function Products() {
             ))}
           </tbody>
         </table>
-      </div>
-    </Layout>
-  );
+      </Layout>
+    );
+  } else {
+    return (
+      <Layout>
+        <h2>No products available</h2>
+        <Link href={"/products/new"} className="button-84">
+          Add new product
+        </Link>
+      </Layout>
+    );
+  }
 }

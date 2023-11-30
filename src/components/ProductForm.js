@@ -33,8 +33,12 @@ export default function ProductFrom({
   //When the form is submited succesfully we redirect to products page
   if (goToProducts) router.push("/products");
 
+  function goBack() {
+    router.push('/products')
+  }
+
   return (
-    <div className="container product-inputs">
+    <div className="product-inputs">
       <form onSubmit={saveProduct}>
         <label>Product name</label>
         <input
@@ -61,6 +65,9 @@ export default function ProductFrom({
         ></textarea>
         <button type="submit" className="button-84 button-save">
           Save
+        </button>
+        <button type="button" className="button-84" onClick={goBack}>
+          Back
         </button>
       </form>
     </div>

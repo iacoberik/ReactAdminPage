@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="container"><h2>Hello, {session?.user?.name}</h2></div>
+      <h2>Hello, {session?.user?.name}</h2>
     </Layout>
   );
 }

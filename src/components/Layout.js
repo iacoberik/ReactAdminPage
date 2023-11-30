@@ -16,7 +16,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Nav></Nav>
-      {children}
+      <div className="container">{children}</div>
       <div className="footer">
         <button onClick={() => signOut("google")} className="button-84">
           Logout

@@ -18,9 +18,7 @@ export default function EditProductPage() {
 
   return (
     <Layout>
-      <div className="container">
-        <h2>Edit Product</h2>
-      </div>
+      <h2>Edit Product</h2>
       {productInfo && <ProductFrom {...productInfo}></ProductFrom>}
     </Layout>
   );

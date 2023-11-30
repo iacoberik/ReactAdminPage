@@ -206,6 +206,11 @@ input[type=number] {
   opacity: .85;
 }
 
+.button-danger {
+  background-image: linear-gradient(#520101, rgb(131, 0, 15));
+  margin-right: 10px;
+}
+
 .button-84:active {
   outline: 0;
 }
