@@ -213,3 +213,33 @@ input[type=number] {
 .button-84:focus {
   box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
 }
+
+table {
+  @apply w-full mt-4 mb-4
+}
+
+table tbody {
+
+}
+
+table thead {
+  @apply text-lg font-semibold text-white bg-gradient-button
+}
+
+table td {
+  @apply px-2 py-2
+}
+
+table tr {
+  @apply border
+}
+
+tr td a {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+tr td a:last-child {
+  
+}

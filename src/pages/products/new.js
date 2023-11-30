@@ -1,21 +1,27 @@
 import { useState } from "react";
 import axios from "axios";
 import Layout from "@/components/Layout";
+import { useRouter } from "next/router";
 
 export default function NewProduct() {
+  //useStateuri for every single input
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-
-  // function validationCheck(input) {
-  //   console.log(typeof input)
-  // }
+  const [goToProducts, setGoToProducts] = useState(false)
+  const router = useRouter()
 
   async function createProduct(e) {
     e.preventDefault();
+    //Defining what we will get from post requst
     const data = {title, description, price};
+    //Uploading to the db, data defined one line before
     await axios.post('/api/products', data)
+    //Setting goToProducts to true if all good in order to redirect on load
+    setGoToProducts(true)
   }  
+  //When the form is submited succesfully we redirect to products page
+  if (goToProducts) router.push('/products')
 
   return (
     <Layout>
