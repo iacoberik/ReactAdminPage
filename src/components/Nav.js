@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signOut } from "next-auth/react";
 
 export default function Nav() {
   const inactiveLink = "flex";
@@ -31,7 +32,7 @@ export default function Nav() {
           Admin Panel
         </h1>
       </div>
-      <div className="flex gap-8">
+      <div className="flex gap-8 items-center">
         <Link
           className={pathname === "/" ? activeLink : inactiveLink}
           href={"/"}
@@ -112,6 +113,9 @@ export default function Nav() {
           </svg>
           Settings
         </Link>
+        <button onClick={() => signOut("google")} className="button-84">
+          Logout
+        </button>
       </div>
     </nav>
   );

@@ -1,9 +1,9 @@
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import Nav from "@/components/Nav";
 
 export default function Layout({ children }) {
-    const button = 'bg-red-500'
   const { data: session } = useSession();
+  
   if (!session) {
     return (
       <div className="flex justify-center items-center h-screen w-screen">
@@ -17,11 +17,7 @@ export default function Layout({ children }) {
     <>
       <Nav></Nav>
       <div className="container">{children}</div>
-      <div className="footer">
-        <button onClick={() => signOut("google")} className="button-84">
-          Logout
-        </button>
-      </div>
+      <div className="footer"></div>
     </>
   );
 }
