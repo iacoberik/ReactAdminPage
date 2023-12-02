@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Spinner from "./Spinner";
+import { ReactSortable } from "react-sortablejs";
 
 export default function ProductFrom({
   _id,
@@ -40,22 +41,30 @@ export default function ProductFrom({
 
   async function uploadImages(e) {
     const files = e.target?.files;
+
     if (files?.length > 0) {
       setIsUploading(true);
       const data = new FormData();
+
       for (const file of files) {
         data.append("file", file);
       }
+
       const res = await axios.post("/api/upload", data);
       setImages((oldImages) => {
         return [...oldImages, ...res.data.links];
       });
     }
+
     setIsUploading(false);
   }
 
   function goBack() {
     router.push("/products");
+  }
+
+  function updateImagesOrder(images) {
+    setImages(images)
   }
 
   return (
@@ -80,12 +89,14 @@ export default function ProductFrom({
         ></input>
         <label>Photos</label>
         <div className="mb-2">
-          {!!images?.length &&
-            images.map((image) => (
-              <div key={image} className="h-24">
-                <img className="h-24" src={image}></img>
-              </div>
-            ))}
+          <ReactSortable list={images} setList={updateImagesOrder} className="flex gap-1 flex-wrap mb-2">
+            {!!images?.length &&
+              images.map((image) => (
+                <div key={image} className="h-24">
+                  <img className="h-24 rounded" src={image}></img>
+                </div>
+              ))}
+          </ReactSortable>
           <label>
             {isUploading && <Spinner></Spinner>}
             {!isUploading && (
