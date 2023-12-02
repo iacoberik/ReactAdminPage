@@ -6,13 +6,14 @@ export default function ProductFrom({
   _id,
   title: existingtitle,
   description: existingDescription,
-  price: existinPrice,
-  images,
+  price: existingPrice,
+  images: existingImages,
 }) {
   //useStateuri for every single input
   const [title, setTitle] = useState(existingtitle || "");
   const [description, setDescription] = useState(existingDescription || "");
-  const [price, setPrice] = useState(existinPrice || "");
+  const [price, setPrice] = useState(existingPrice || "");
+  const [images, setImages] = useState(existingImages || [])
   const [goToProducts, setGoToProducts] = useState(false);
   const router = useRouter();
 
@@ -35,15 +36,16 @@ export default function ProductFrom({
   if (goToProducts) router.push("/products");
 
   async function uploadImages(e) {
-    console.log(e.target.files)
-    const files = ev.target?.files
+    const files = e.target?.files
     if(files?.length > 0) {
       const data = new FormData();
-      files.forEach(file => {
+      for(const file of files) {
         data.append('file', file)
-      })
+      }
       const res = await axios.post('/api/upload', data)
-      console.log(res.data)
+      setImages(oldImages => {
+        return [...oldImages, ...res.data.links];
+      })
     }
   }
 
@@ -73,6 +75,9 @@ export default function ProductFrom({
         ></input>
         <label>Photos</label>
         <div className="mb-2">
+          {!!images?.length && images.map(image => (
+            <div key={image}>{image}</div>
+          ))}
           <label>
             <div className="button-84">
               {/* <svg
