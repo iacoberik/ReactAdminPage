@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <h2>Hello, {session?.user?.name}</h2>
-      <img src={session?.user?.image}></img>
+      {/* <img src={session?.user?.image}></img> */}
     </Layout>
   );
 }
