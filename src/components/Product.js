@@ -4,8 +4,10 @@ export default function Product({products}) {
   return (
     <table>
       <thead>
-        <td>Product Name</td>
-        <td></td>
+        <tr>
+          <td>Product Name</td>
+          <td></td>
+        </tr>
       </thead>
       <tbody>
         {products.map((product) => (
