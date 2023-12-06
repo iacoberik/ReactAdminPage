@@ -64,7 +64,7 @@ export default function ProductFrom({
   }
 
   function updateImagesOrder(images) {
-    setImages(images)
+    setImages(images);
   }
 
   return (
@@ -89,7 +89,11 @@ export default function ProductFrom({
         ></input>
         <label>Photos</label>
         <div className="mb-2">
-          <ReactSortable list={images} setList={updateImagesOrder} className="flex gap-1 flex-wrap mb-2">
+          <ReactSortable
+            list={images}
+            setList={updateImagesOrder}
+            className="flex gap-1 flex-wrap mb-2"
+          >
             {!!images?.length &&
               images.map((image) => (
                 <div key={image} className="h-24">

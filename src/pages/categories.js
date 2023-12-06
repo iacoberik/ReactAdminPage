@@ -4,6 +4,7 @@ import axios from "axios";
 
 export default function Categories() {
   const [name, setName] = useState("");
+  const [parentCategory, setParentCategory] = useState("");
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function Categories() {
 
   async function saveCategory(e) {
     e.preventDefault();
-    await axios.post("/api/categories", { name });
+    await axios.post("/api/categories", { name, parentCategory });
     setName("");
     fetchCategories();
   }
@@ -34,6 +35,16 @@ export default function Categories() {
           onChange={(e) => setName(e.target.value)}
           value={name}
         ></input>
+        <select
+          value={parentCategory}
+          onChange={(e) => setParentCategory(e.target.value)}
+        >
+          <option value="">No parent category</option>
+          {categories.length > 0 &&
+            categories.map((category) => {
+              return <option value={category._id}>{category.name}</option>;
+            })}
+        </select>
         <button type="submit" className="button-84">
           Save
         </button>
