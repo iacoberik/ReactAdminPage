@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function Categories() {
   const [name, setName] = useState("");
-  const [parentCategory, setParentCategory] = useState("");
+  const [parentCategory, setParentCategory] = useState(null);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -50,17 +50,18 @@ export default function Categories() {
         </button>
       </form>
       <table>
-        <th>
+        <thead>
           <tr>
             <td>Category name</td>
           </tr>
-        </th>
+        </thead>
         <tbody>
           {categories.length > 0 &&
             categories.map((category) => {
               return (
-                <tr>
+                <tr key={category.name}>
                   <td>{category.name}</td>
+                  <td>{category?.parent?.name}</td>
                 </tr>
               );
             })}
