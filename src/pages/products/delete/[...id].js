@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function deleteProductPage() {
+export default function DeleteProductPage() {
   const router = useRouter();
   const [productInfo, setProductInfo] = useState();
   const { id } = router.query;
@@ -23,10 +23,10 @@ export default function deleteProductPage() {
     await axios.delete("/api/products?id=" + id);
     goBack();
   }
-  
+
   return (
     <Layout>
-      <h2>Do you really want to delete product "{productInfo?.title}"?</h2>
+      <h2>Do you really want to delete product {productInfo?.title}?</h2>
       <button className="button-84 button-danger" onClick={deleteProduct}>
         Yes
       </button>

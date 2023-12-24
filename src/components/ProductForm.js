@@ -97,7 +97,7 @@ export default function ProductFrom({
             {!!images?.length &&
               images.map((image) => (
                 <div key={image} className="h-24">
-                  <img className="h-24 rounded" src={image}></img>
+                  <img className="h-24 rounded" src={image} alt={image}></img>
                 </div>
               ))}
           </ReactSortable>

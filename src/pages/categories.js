@@ -42,7 +42,11 @@ export default function Categories() {
           <option value="">No parent category</option>
           {categories.length > 0 &&
             categories.map((category) => {
-              return <option value={category._id}>{category.name}</option>;
+              return (
+                <option key={category._id} value={category._id}>
+                  {category.name}
+                </option>
+              );
             })}
         </select>
         <button type="submit" className="button-84">
